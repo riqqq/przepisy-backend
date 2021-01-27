@@ -6,4 +6,5 @@ module.exports = function(app) {
     app.get('/api/przepisy', przepisy.przepisy);
     app.put('/api/przepis', przepisy.updatePrzepis);
     app.delete('/api/przepis/:id', przepisy.deletePrzepis);
+    app.get('/api/przepisy/:products', przepisy.przepisyWithProducts);
 }

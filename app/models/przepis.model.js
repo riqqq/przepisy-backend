@@ -7,9 +7,7 @@ const PrzepisSchema = mongoose.Schema({
     },
     opis: String,
     trudnosc: String,
-    wymaganeProdukty: [{
-        type: String
-    }],
+    wymaganeProdukty: [String],
     postedBy: {
         type: String,
         default: 'Anonymous'

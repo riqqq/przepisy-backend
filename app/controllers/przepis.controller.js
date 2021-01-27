@@ -1,7 +1,7 @@
 const Przepis = require('../models/przepis.model');
 
 exports.createPrzepis = (req, res) => {
-    let produkty = req.body.wymaganeProdukty + '';
+    let produkty = req.body.wymaganeProdukty;
     let wymaganeProduktyArr = produkty.split(', ');
     const przepis = new Przepis({
         nazwa: req.body.nazwa,
@@ -51,6 +51,20 @@ exports.przepisy = (req, res) => {
             error: error
         });
     });
+};
+
+exports.przepisyWithProducts = (req, res) => {
+    let productsList = req.params.products;
+        Przepis.find({ wymaganeProdukty: { $all : productsList} }).select('-__v').then(przepisInfos => {
+            res.status(200).json(przepisInfos);
+        }).catch(error => {
+            console.log(error);
+    
+            res.status(500).json({
+                message: "Error!",
+                error: error
+            });
+        });
 };
 
 exports.deletePrzepis = (req, res) => {
