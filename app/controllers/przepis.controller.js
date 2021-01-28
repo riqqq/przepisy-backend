@@ -55,7 +55,9 @@ exports.przepisy = (req, res) => {
 
 exports.przepisyWithProducts = (req, res) => {
     let productsList = req.params.products;
-        Przepis.find({ wymaganeProdukty: { $all : productsList} }).select('-__v').then(przepisInfos => {
+    let productsListArr = productsList.split(", ");
+        Przepis.find({ wymaganeProdukty: { $all: productsListArr} }).select('-__v').then(przepisInfos => {
+            console.log(przepisInfos);
             res.status(200).json(przepisInfos);
         }).catch(error => {
             console.log(error);
