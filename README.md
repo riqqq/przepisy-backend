@@ -1,4 +1,4 @@
-# Pyszności - recipes list website
+# Przepisy - recipes list website
 Simple web app created with react.js and mongoDB
 ## Project's aim
 This is a university project. We aimed to create a website that can find available recipies considering what kind of products we have.
