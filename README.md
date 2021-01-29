@@ -9,7 +9,7 @@ This is a university project. We aimed to create a website that can find availab
 To launch this project install it locally using npm:
 ```
 npm install
-npm start
+node server.js
 ```
 ## Functionalities
 * Add, edit and delete recipes in database
